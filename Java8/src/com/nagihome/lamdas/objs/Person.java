@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nagihome.lamdas.predicate;
+package com.nagihome.lamdas.objs;
 
 /**
  * @author Nagi

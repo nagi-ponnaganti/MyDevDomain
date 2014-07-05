@@ -5,7 +5,9 @@ package com.nagihome.lamdas.predicate;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
+
+import com.nagihome.lamdas.objs.Person;
+import com.nagihome.lamdas.objs.PersonSex;
 
 import static com.nagihome.lamdas.predicate.PersonPredicates.*;
 
@@ -28,33 +30,34 @@ public class Main {
 				new Person("Person05", PersonSex.FEMALE, 26),
 				new Person("Person06", PersonSex.BOTH, 27) });
 
-		CheckPerson checker = (Person person) -> {
-			return person.getAge() > 20 && person.getAge() < 30
-					&& person.getSex().equals(PersonSex.FEMALE);
-		};
-
-		printPeople(people, checker);
-
-		printPeople(people, isAdultMale());
-		printPeople(people, isAdultFemale());
-		printPeople(people, norMaleOrFemale());
+		/*
+		 * CheckPerson checker = (Person person) -> { return person.getAge() >
+		 * 20 && person.getAge() < 30 &&
+		 * person.getSex().equals(PersonSex.FEMALE); };
+		 * 
+		 * printPeople(people, checker);
+		 * 
+		 * printPeople(people, isAdultMale()); printPeople(people,
+		 * isAdultFemale()); printPeople(people, isBoth());
+		 */
+		
+		printPeople(filterPeople(people, isAdultFemale().or(isBoth())));
+//		printPeople(filterPeople(people, isAdultMale()));
+//		printPeople(filterPeople(people, isBoth()));
 
 	}
 
-	private static void printPeople(List<Person> people, CheckPerson checker) {
-		for (Person person : people) {
-			if (checker.check(person)) {
-				System.out.println("Person Details are: " + person.toString());
-			}
-		}
-	}
-
-	private static void printPeople(List<Person> people,
-			Predicate<Person> predicate) {
-		for (Person person : people) {
-			if (predicate.test(person)) {
-				System.out.println("Person Details are: " + person.toString());
-			}
-		}
+	/*
+	 * private static void printPeople(List<Person> people, CheckPerson checker)
+	 * { for (Person person : people) { if (checker.check(person)) {
+	 * System.out.println("Person Details are: " + person.toString()); } } }
+	 * 
+	 * private static void printPeople(List<Person> people, Predicate<Person>
+	 * predicate) { for (Person person : people) if (predicate.test(person))
+	 * System.out.println("Person Details are: " + person.toString()); }
+	 */
+	private static void printPeople(List<Person> people) {
+		for (Person person : people)
+			System.out.println("Person Details are: " + person.toString());
 	}
 }
