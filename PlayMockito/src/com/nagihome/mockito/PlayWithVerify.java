@@ -6,6 +6,9 @@ package com.nagihome.mockito;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -13,6 +16,9 @@ import static org.mockito.Mockito.*;
  *
  */
 public class PlayWithVerify {
+	
+	@Mock static List<String> mockList04 = new ArrayList<String>();
+
 
 	/**
 	 * @param args
@@ -51,6 +57,8 @@ public class PlayWithVerify {
 		 */
 		
 		verifyZeroInteractions(mockList02, mockList03);
-
+		
+		MockitoAnnotations.initMocks(PlayWithVerify.class);
+		mockList04.add("Nagi");
 	}
 }
