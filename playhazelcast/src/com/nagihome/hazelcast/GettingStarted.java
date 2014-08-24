@@ -22,6 +22,7 @@ public class GettingStarted {
 	public static void main(String[] args) {
 
 		Config config = new Config();
+		
 
 		HazelcastInstance instance = Hazelcast.newHazelcastInstance(config);
 
