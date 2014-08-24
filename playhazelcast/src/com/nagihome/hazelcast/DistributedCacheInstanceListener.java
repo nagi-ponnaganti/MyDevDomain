@@ -32,7 +32,7 @@ public class DistributedCacheInstanceListener implements
 		instance.addDistributedObjectListener(listener);
 
 		Collection<DistributedObject> distributedObjs = instance
-				.getDistributedObjects();
+				.getDistributedObjects();		
 
 		for (DistributedObject obj : distributedObjs) {
 			System.out.println("The Instance name:" + obj.getName());

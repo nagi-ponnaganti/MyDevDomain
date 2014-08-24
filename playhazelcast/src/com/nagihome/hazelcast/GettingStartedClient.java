@@ -27,9 +27,9 @@ public class GettingStartedClient {
 
 		IMap<Integer, String> mapCustomers = clientInstance
 				.getMap("mapCustomers");
-		
-		
-		System.out.println("The customer with name: " + mapCustomers.get(1));
+
+		System.out.println("map size: " + mapCustomers.size());
+
 	}
 
 }

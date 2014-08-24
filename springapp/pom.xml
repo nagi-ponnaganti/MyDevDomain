@@ -35,7 +35,23 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.0.6.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-client</artifactId>
+			<version>3.0.3</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-spring</artifactId>
+			<version>3.0.3</version>
+		</dependency>
 	</dependencies>
+	
 	<repositories>
 		<repository>
 			<id>java.net</id>
