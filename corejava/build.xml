@@ -11,6 +11,7 @@
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="build" />
 	<property name="lib.dir" value="lib" />
+	
 
 	<!-- Paths used for compilation and run -->
 	<path id="lib.path.id">
@@ -28,7 +29,7 @@
           target: resolve              
          ================================= -->
 	<target name="resolve" description="--> resolve the dependencies with ivy ">
-		<ivy:resolve />
+		<ivy:retrieve />
 	</target>
 
 	<!-- ================================= 
@@ -42,7 +43,7 @@
           target: compile
          ================================= -->
 
-	<target name="compile" description="compile the source">
+	<target name="compile" depends="resolve" description="compile the source">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${lib.dir}" />
 		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false" />
