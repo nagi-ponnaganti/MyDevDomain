@@ -1,0 +1,79 @@
+<!--This file is used by ant to know where the source is, where to put the compiled files,
+ where to put jar files, so it has list of targets to do it-->
+<!-- we have added xmlns tag attribute to Project becuase this ant will interact with ivy -->
+
+<project name="corejava" default="run" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<!-- import files needed, in our case is props file -->
+	<property file="build.properties" />
+
+	<!-- List of properties which will be used later part -->
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="lib.dir" value="lib" />
+
+	<!-- Paths used for compilation and run -->
+	<path id="lib.path.id">
+		<fileset dir="${lib.dir}" />
+	</path>
+	<path id="run.path.id">
+		<path refid="lib.path.id" />
+		<path location="${build.dir}" />
+	</path>
+
+	<!-- Targets are like tasks -->
+
+
+	<!-- ================================= 
+          target: resolve              
+         ================================= -->
+	<target name="resolve" description="--> resolve the dependencies with ivy ">
+		<ivy:resolve />
+	</target>
+
+	<!-- ================================= 
+          target: report              
+         ================================= -->
+	<target name="report" depends="resolve" description="--> generates a report of dependencies">
+		<ivy:report todir="${build.dir}" />
+	</target>
+
+	<!-- ================================= 
+          target: compile
+         ================================= -->
+
+	<target name="compile" description="compile the source">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${lib.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" />
+	</target>
+
+	<!-- ================================= 
+          target: run
+         ================================= -->
+	<target name="run" depends="compile" description="Run The Program">
+		<java classpathref="run.path.id" classname="com.nagihome.HelloWorld" />
+	</target>
+
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+	<target name="clean" description="--> clean the project">
+		<delete includeemptydirs="true">
+			<fileset dir="${basedir}">
+				<exclude name="src/**" />
+				<exclude name="build.xml" />
+				<exclude name="ivy.xml" />
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- ================================= 
+          target: clean-cache              
+         ================================= -->
+	<target name="clean-cache" description="--> clean the ivy cache">
+		<ivy:cleancache />
+	</target>
+
+</project>
