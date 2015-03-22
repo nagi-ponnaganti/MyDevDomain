@@ -45,7 +45,7 @@
 	<target name="compile" description="compile the source">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${lib.dir}" />
-		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false" />
 	</target>
 
 	<!-- ================================= 
@@ -64,6 +64,7 @@
 			<fileset dir="${basedir}">
 				<exclude name="src/**" />
 				<exclude name="build.xml" />
+				<exclude name="ivy.xml" />
 				<exclude name="ivy.xml" />
 			</fileset>
 		</delete>
