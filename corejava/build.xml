@@ -29,7 +29,7 @@
           target: resolve              
          ================================= -->
 	<target name="resolve" description="--> resolve the dependencies with ivy ">
-		<ivy:retrieve />
+		<ivy:retrieve pattern="${lib.dir}/[artifact]-[revision].[ext]" conf="compile"/>
 	</target>
 
 	<!-- ================================= 

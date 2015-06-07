@@ -20,7 +20,7 @@
     <info organisation="org.apache" module="hello-ivy"/>
     <dependencies>
         <dependency org="commons-lang" name="commons-lang" rev="2.0"/>
-		<dependency org="junit" name="junit-dep" rev="4.8.2"/>
+		<dependency org="junit" name="junit-dep" rev="4.8.2" conf="compile->default" />
 		<dependency org="org.mockito" name="mockito-all" rev="2.0.2-beta"/>		
     </dependencies>
 </ivy-module>
