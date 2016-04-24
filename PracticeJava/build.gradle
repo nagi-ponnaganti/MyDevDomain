@@ -1,0 +1,28 @@
+/*******************
+* Gradle build file
+********************/
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+archivesBaseName = 'Quote'
+version = '1.0-FINAL'
+
+defaultTasks 'buildTask'
+
+
+task compileTask << {
+	System.out.println 'compiling....'
+}
+
+task buildTask (dependsOn:compileTask) << {
+	System.out.println 'building....'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.apache.commons:commons-lang3:3.3.2' 
+}
