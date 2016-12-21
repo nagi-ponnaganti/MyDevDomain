@@ -32,7 +32,7 @@ public class Main {
 		Event event01 = new Event("Our very first event!", new Date());
 		event01.setDescription("This is the first event created");
 		session.save(event01);
-		Event event02 = new Event("Our very first event!", new Date());
+		Event event02 = new Event("Our very second event!", new Date());
 		event02.setDescription("This is the second event created");
 		session.save(event02);
 		session.getTransaction().commit();

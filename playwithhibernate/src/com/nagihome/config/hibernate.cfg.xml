@@ -31,11 +31,10 @@
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">create</property>
 
-        <mapping class="com.nagihome.beans.Event"/>
-        <mapping class="com.nagihome.types.Contact"/>
-
+		<mapping class="com.nagihome.beans.Event" />
+		<mapping class="com.nagihome.types.Contact" />
+		<mapping class="com.nagihome.beghib.chapter01.Message" />
 
 	</session-factory>
-
 
 </hibernate-configuration>
