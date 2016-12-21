@@ -1,0 +1,22 @@
+body {
+	background-color: grey;
+}
+
+h1 {
+	color: black;
+	font-family: verdana;
+	font-size: 300%;
+}
+
+#p01 {
+	color: blue;
+	font-family: courier;
+	font-size: 160%;
+	border: 1px solid;
+	padding: 30px;
+	margin: 50px;
+}
+
+p.error {
+	color: pink;
+}
