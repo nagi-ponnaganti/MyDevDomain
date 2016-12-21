@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>JSF Tutorial</title>
+<script type="text/javascript">
+	function getSelectBooleanCheckBoxValue() {
+		alert(document.getElementById('jsfForm:selBolChkBx').checked);
+	}
+</script>
+</head>
+
+<body>
+	<h2>This is h:selectbooleanCheckBox</h2>
+	<hr />
+	<h:form id="jsfForm">
+		<h3>Get Value From the select boolean check box</h3>
+		<h:selectBooleanCheckbox value="Remember Me"
+			id="selBolChkBx" />
+		<h:commandButton value="Show Checked"
+			onclick="getSelectBooleanCheckBoxValue()" />
+	</h:form>
+
+</body>
+
+</html>

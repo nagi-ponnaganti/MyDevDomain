@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>This is JSF Tutorial</title>
+</h:head>
+
+<body>
+	<h2>This is Action Event Listener Method Binding Example</h2>
+	<hr />
+
+	<h:form>
+		<h:panelGrid columns="2">
+			Selcted Locale:
+			<h:selectOneMenu value="#{countryData.coutrySelected}"
+				onchange="submit()">
+				<f:valueChangeListener
+					type="com.nagihome.jsfdemo.events.LocaleChangeListener" />
+				<f:selectItems value="#{countryData.countries}" />
+			</h:selectOneMenu>
+			Country Selected:
+			<h:outputText value="#{countryData.coutrySelected}" id="country"
+				size="20" />
+		</h:panelGrid>
+	</h:form>
+
+</body>
+
+</html>
