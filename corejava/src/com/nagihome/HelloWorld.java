@@ -16,6 +16,7 @@ public class HelloWorld {
 	 * @param args
 	 * @throws Exception
 	 */
+	@SuppressWarnings({ "rawtypes", "static-access", "unchecked" })
 	public static void main(String[] args) throws Exception {
 
 		double d = 0.0 / 0.0;
