@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-4.0.dtd">
+<hibernate-mapping>
+  <class name="Department" table="department">
+    <id name="id" type="long" column="id">
+      <generator class="auto" />
+    </id>
+    <property column="dept_name" name="deptName" />
+    <!-- other properties mapping -->
+  </class>  
+</hibernate-mapping>

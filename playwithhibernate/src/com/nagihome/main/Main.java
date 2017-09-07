@@ -3,13 +3,13 @@
  */
 package com.nagihome.main;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.nagihome.beans.Event;
+import com.nagihome.entities.Department;
+import com.nagihome.entities.Employee;
 import com.nagihome.util.HibernateUtil;
 
 /**
@@ -29,26 +29,56 @@ public class Main {
 
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		Event event01 = new Event("Our very first event!", new Date());
-		event01.setDescription("This is the first event created");
-		session.save(event01);
-		Event event02 = new Event("Our very second event!", new Date());
-		event02.setDescription("This is the second event created");
-		session.save(event02);
+
+		Department dep = new Department();
+		dep.setDeptName("CSE");
+		dep.setId(5);
+		
+		session.update(dep);
+//
+//		Employee emp = new Employee();
+//		emp.setFirstName("Nagi Ponnaganti");
+//		emp.setSalary(68000);
+//		emp.setDepartment(dep);
+		
+		Employee emp1 = new Employee();
+		emp1.setFirstName("Yogesh");
+		emp1.setSalary(50000);
+		emp1.setDepartment(dep);
+		
+		Employee emp2 = new Employee();
+		emp2.setFirstName("Aarush");
+		emp2.setSalary(35000);
+		emp2.setDepartment(dep);
+		
+		Employee emp3 = new Employee();
+		emp3.setFirstName("Varsha");
+		emp3.setSalary(30000);
+		emp3.setDepartment(dep);
+		
+		Employee emp4 = new Employee();
+		emp4.setFirstName("Vishal");
+		emp4.setSalary(75000);
+		emp4.setDepartment(dep);
+
+		session.save(emp1);
+		session.save(emp2);
+		session.save(emp3);
+		session.save(emp4);
 		session.getTransaction().commit();
 		session.close();
 
-		// now lets pull events from the database and list them
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		List<Event> result = session.createQuery("from Event").list();
-		for (Event event : (List<Event>) result) {
-			System.out.println(String.format("Event %s : %s : %s",
-					new Object[] { event.getDate(), event.getTitle(), event.getDescription() }));
+		List<Employee> result = session.createQuery("from Employee").list();
+		for (Employee employee : (List<Employee>) result) {
+			System.out.println(String.format("Employee %s : %s : %s",
+					new Object[] { employee.getFirstName(), employee.getSalary(), employee.getDepartment() }));
 		}
 		session.getTransaction().commit();
 		session.close();
 
 		sessionFactory.close();
 	}
+
 }
