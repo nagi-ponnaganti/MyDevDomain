@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JSFDemo/JSFDemo.iml" filepath="$PROJECT_DIR$/JSFDemo/JSFDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlayWithJavaFx/PlayWithJavaFx.iml" filepath="$PROJECT_DIR$/PlayWithJavaFx/PlayWithJavaFx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeJava/PracticeJava.iml" filepath="$PROJECT_DIR$/PracticeJava/PracticeJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestingWebApp/TestingWebApp.iml" filepath="$PROJECT_DIR$/TestingWebApp/TestingWebApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/corejava/corejava.iml" filepath="$PROJECT_DIR$/corejava/corejava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maze/maze.iml" filepath="$PROJECT_DIR$/maze/maze.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playwithcfx/playwithcfx.iml" filepath="$PROJECT_DIR$/playwithcfx/playwithcfx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playwithhibernate/playwithhibernate.iml" filepath="$PROJECT_DIR$/playwithhibernate/playwithhibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playwithspringboot/playwithspringboot.iml" filepath="$PROJECT_DIR$/playwithspringboot/playwithspringboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playwithswing/playwithswing.iml" filepath="$PROJECT_DIR$/playwithswing/playwithswing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practicepython/practicepython.iml" filepath="$PROJECT_DIR$/practicepython/practicepython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sakila/sakila.iml" filepath="$PROJECT_DIR$/sakila/sakila.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sakilavaadin/sakilavaadin.iml" filepath="$PROJECT_DIR$/sakilavaadin/sakilavaadin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala-demo/scala-demo.iml" filepath="$PROJECT_DIR$/scala-demo/scala-demo.iml" />
+    </modules>
+  </component>
+</project>
