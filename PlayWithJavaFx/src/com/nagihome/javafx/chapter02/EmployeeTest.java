@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.nagihome.javafx.chapter02;
 
@@ -7,37 +7,29 @@ import java.beans.PropertyChangeEvent;
 
 /**
  * @author nageswararao
- *
  */
 public class EmployeeTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		final Employee e1 = new Employee("Nagi Ponnaganti", 65000d);
-		computeTax(e1.getSalary());		
-		e1.addPropertyChangeListener(EmployeeTest::handlePropertyChange);
-		
-		e1.setSalary(67800d);
-	}
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Moni", 2000.0);
+        e1.addPropertyChangeListener(EmployeeTest::handlePropertyChange);
+        e1.setSalary(2000.0);
+        e1.setSalary(3000.0);
+        e1.setSalary(4000.0);
+    }
 
-	public static void handlePropertyChange(PropertyChangeEvent pce) {
-		String propertyName = pce.getPropertyName();
+    private static void handlePropertyChange(PropertyChangeEvent pce) {
+        String propertyName = pce.getPropertyName();
+        if("salary".equalsIgnoreCase(propertyName)) {
+            System.out.printf("Salary has changed. \n");
+            System.out.printf("Old: %s, New: %s\n", pce.getOldValue(), pce.getNewValue());
+            computeTax((Double) pce.getNewValue());
+        }
+    }
 
-		if ("salary".equals(propertyName)) {
-			System.out.println("Property Value Changed");
-			System.out.println("Old Value: " + pce.getOldValue());
-			System.out.println("New Value: " + pce.getNewValue());
-			computeTax(Double.valueOf(pce.getNewValue().toString()));
-		}
-	}
-
-	public static void computeTax(double salary) {
-		final double TAX_PERCENT = 20.0;
-		double tax = salary * TAX_PERCENT / 100.0;
-		System.out.println("Salary:" + salary + ", Tax:" + tax);
-	}
-
+    private static void computeTax(double salary) {
+        double TAX_PERCENTAGE = 20.0;
+        double tax = salary * TAX_PERCENTAGE / 100;
+        System.out.printf("Salary: %s, Tax: %s\n", salary, tax);
+    }
 }
