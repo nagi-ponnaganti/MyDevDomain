@@ -12,11 +12,17 @@ public class Ch02Main {
         double c = x + y;
 
         System.out.printf("a: %s b: %s c: %s\n", a, b, c);
-
+        System.out.println("roar: " + new StringBuilder("roar"));
 /*        for(int i=0;i<10;){
             i=i++;
             System.out.println("Hello World " + i);
         }*/
+
+        String s = "purr";
+        System.out.println("SubString: " + s.substring(3, 2));
+
+        s+=true;
+
 
         byte e = 50;
         byte f = 40;
