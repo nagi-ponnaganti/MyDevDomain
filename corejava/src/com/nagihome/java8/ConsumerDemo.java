@@ -15,6 +15,9 @@ public class ConsumerDemo {
 
 	public static void main(String[] args) {
 
+		System.out.print(5 + 6 + "7" + 8 + 9);
+
+
 		Student nagi = new Student("Nagi Ponnaganti", 30, "Male");
 		Student moni = new Student("Moni Gutta", 27, "Female");
 

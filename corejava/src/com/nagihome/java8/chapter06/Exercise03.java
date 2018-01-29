@@ -22,6 +22,7 @@ public class Exercise03 {
 
 	public static void main(String[] args) {
 
+
 		// Transactions Group by Currency
 		TradeDataProvider.getTransactionData().stream().collect(groupingBy(Transaction::getCurrency)).entrySet()
 				.forEach(e -> System.out.format("key: %s value: %s \n", e.getKey(),
