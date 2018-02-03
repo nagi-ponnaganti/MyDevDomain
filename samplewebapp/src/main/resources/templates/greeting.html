@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="'Hello, ' + ${user.name} + '!'"/>
+<p th:text="#{home.welcome}">Hello There</p>
+<p th:utext="#{home.welcome1}">Hello There</p>
+Established Locale Country:<span th:text="${#locale.country}">US</span>
+
+<div th:object="${user}">
+    <p>Name: <span th:text="*{firstName}">Sebastian</span>.</p>
+    <p>Surname: <span th:text="*{lastName}">Pepper</span>.</p>
+    <p>Nationality: <span th:text="*{nationality}">Saturn</span>.</p>
+</div>
+
+<a href="details.html"
+   th:href="@{http://localhost:8080/greeting(name=${order.id})}">view</a>
+
+<p>Please select an option</p>
+<ol>
+    <li><a href="product/list.html" th:href="@{/product/list}">Product List</a></li>
+    <li><a href="order/list.html" th:href="@{/order/list}">Order List</a></li>
+    <li><a href="subscribe.html" th:href="@{/subscribe}">Subscribe to our Newsletter</a></li>
+    <li><a href="userprofile.html" th:href="@{/userprofile}">See User Profile</a></li>
+</ol>
+
+<p>
+    Now you are looking at a <span th:text="'working web application'">template file</span>.
+</p>
+
+<p>The year is <span th:text="2013">1492</span>.</p>
+<p>In two years, it will be <span th:text="2013 + 2">1494</span>.</p>
+<span th:text="'The name of the user is ' + ${user.name}" />
+
+
+</body>
+</html>
