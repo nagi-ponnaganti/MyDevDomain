@@ -74,4 +74,19 @@ public class AppService implements IAppService {
         return appDao.getAllLanguages();
     }
 
+    @Override
+    public List<Payment> getAllPayments() {
+        return appDao.getAllPayments();
+    }
+
+    @Override
+    public List<Rental> getAllRentals() {
+        return appDao.getAllRentals();
+    }
+
+    @Override
+    public List<Rental> getAllStaffs() {
+        return appDao.getAllStaffs();
+    }
+
 }

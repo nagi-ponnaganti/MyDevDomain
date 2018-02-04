@@ -29,4 +29,10 @@ public interface IAppService {
     List<Inventory> getAllInventories();
 
     List<Language> getAllLanguages();
+
+    List<Payment> getAllPayments();
+
+    List<Rental> getAllRentals();
+
+    List<Rental> getAllStaffs();
 }

@@ -84,4 +84,21 @@ public class AppController {
         return "languagespage";
     }
 
+    @RequestMapping("/allpayment")
+    private String getAllPayments(Model model) {
+        model.addAttribute("payments", appService.getAllPayments());
+        return "paymentspage";
+    }
+
+    @RequestMapping("/allrental")
+    private String getAllRentals(Model model) {
+        model.addAttribute("rentals", appService.getAllRentals());
+        return "rentalspage";
+    }
+
+    @RequestMapping("/allstaff")
+    private String getAllStaffs(Model model) {
+        model.addAttribute("staffs", appService.getAllStaffs());
+        return "staffspage";
+    }
 }
