@@ -24,4 +24,7 @@ public interface IAppDao {
 
     List<FilmCategory> getAllFilmCategories();
 
+    List<FilmText> getAllFilmTexts();
+
+    List<Inventory> getAllInventories();
 }

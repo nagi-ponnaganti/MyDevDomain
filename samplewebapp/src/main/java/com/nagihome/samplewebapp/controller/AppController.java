@@ -66,4 +66,16 @@ public class AppController {
         return "filmcategoriespage";
     }
 
+    @RequestMapping("/allfilmtext")
+    private String getAllFilmTexts(Model model) {
+        model.addAttribute("filmtexts", appService.getAllFilmTexts());
+        return "filmtextspage";
+    }
+
+    @RequestMapping("/allinventory")
+    private String getAllInventories(Model model) {
+        model.addAttribute("inventories", appService.getAllInventories());
+        return "inventoriespage";
+    }
+
 }

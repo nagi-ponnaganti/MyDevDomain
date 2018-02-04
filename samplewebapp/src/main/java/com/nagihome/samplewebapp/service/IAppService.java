@@ -23,4 +23,8 @@ public interface IAppService {
     List<FilmActor> getAllFilmActors();
 
     List<FilmCategory> getAllFilmCategories();
+
+    List<FilmText> getAllFilmTexts();
+
+    List<Inventory> getAllInventories();
 }
