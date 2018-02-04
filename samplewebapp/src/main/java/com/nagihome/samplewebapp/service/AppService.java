@@ -89,4 +89,9 @@ public class AppService implements IAppService {
         return appDao.getAllStaffs();
     }
 
+    @Override
+    public List<Store> getAllStore() {
+        return appDao.getAllStore();
+    }
+
 }

@@ -36,4 +36,6 @@ public interface IAppDao {
 
     List<Rental> getAllStaffs();
 
+    List<Store> getAllStore();
+
 }

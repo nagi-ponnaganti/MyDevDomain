@@ -35,4 +35,6 @@ public interface IAppService {
     List<Rental> getAllRentals();
 
     List<Rental> getAllStaffs();
+
+    List<Store> getAllStore();
 }

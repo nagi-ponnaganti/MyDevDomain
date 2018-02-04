@@ -28,6 +28,7 @@ public class AppDao implements IAppDao {
     private static final String GET_ALL_PAYMENT_HSQL = "FROM Payment";
     private static final String GET_ALL_RENTAL_HSQL = "FROM Rental";
     private static final String GET_ALL_STAFF_HSQL = "FROM Staff";
+    private static final String GET_ALL_STORE_HSQL = "FROM Store";
 
 
     @PersistenceContext
@@ -107,6 +108,12 @@ public class AppDao implements IAppDao {
     public List<Rental> getAllStaffs() {
         return entityManager.createQuery(GET_ALL_STAFF_HSQL).getResultList();
     }
+
+    @Override
+    public List<Store> getAllStore() {
+        return entityManager.createQuery(GET_ALL_STORE_HSQL).getResultList();
+    }
+
 }
 
 

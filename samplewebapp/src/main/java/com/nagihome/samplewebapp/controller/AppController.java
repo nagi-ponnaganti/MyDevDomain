@@ -101,4 +101,10 @@ public class AppController {
         model.addAttribute("staffs", appService.getAllStaffs());
         return "staffspage";
     }
+
+    @RequestMapping("/allstore")
+    private String getAllStores(Model model) {
+        model.addAttribute("stores", appService.getAllStore());
+        return "storespage";
+    }
 }
