@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>All Actors</title>
 </head>
 <style>
@@ -20,6 +20,7 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 
+
 </style>
 <body>
 <h2>Actor list</h2>
@@ -32,10 +33,10 @@ tr:nth-child(even){background-color: #f2f2f2}
         <th>LAST_UPDATE</th>
     </tr>
     <tr th:each="actor : ${actors}">
-        <td th:text="${actor.actorId}" />
-        <td th:text="${actor.firstName}" />
-        <td th:text="${actor.lastName}" />
-        <td th:text="${actor.lastUpdate}" />
+        <td th:text="${actor.actorId}"/>
+        <td th:text="${actor.firstName}"/>
+        <td th:text="${actor.lastName}"/>
+        <td th:text="${actor.lastUpdate}"/>
     </tr>
 </table>
 

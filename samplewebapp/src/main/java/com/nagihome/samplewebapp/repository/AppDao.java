@@ -1,7 +1,8 @@
-package com.nagihome.samplewebapp.repository.impl;
+package com.nagihome.samplewebapp.repository;
 
 import com.nagihome.samplewebapp.entity.Actor;
-import com.nagihome.samplewebapp.repository.IActorDao;
+import com.nagihome.samplewebapp.entity.Address;
+import com.nagihome.samplewebapp.repository.IAppDao;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class ActorDao implements IActorDao {
+public class AppDao implements IAppDao {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -22,4 +23,13 @@ public class ActorDao implements IActorDao {
         return entityManager.createQuery(GET_ALL_ACTORS_HSQL).getResultList();
     }
 
+    private static final String GET_ALL_ADDRESSES_HSQL = "FROM Address";
+
+
+    @Override
+    public List<Address> getAllAddresses() {
+        return entityManager.createQuery(GET_ALL_ADDRESSES_HSQL).getResultList();
+    }
 }
+
+

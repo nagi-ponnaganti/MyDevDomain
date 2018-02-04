@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Addresses</title>
+</head>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border:2px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+
+</style>
+<body>
+<h2>Addresses list</h2>
+
+<table>
+    <tr>
+        <th>ADDRESS_ID</th>
+        <th>ADDRESS</th>
+        <th>ADDRESS2</th>
+        <th>DISTRICT</th>
+        <th>CITY_ID</th>
+        <th>POSTAL_CODE</th>
+        <th>PHONE</th>
+        <th>LOCATION</th>
+        <th>LAST_UPDATE</th>
+    </tr>
+    <tr th:each="address : ${addresses}">
+        <td th:text="${address.addressId}"/>
+        <td th:text="${address.address}"/>
+        <td th:text="${address.address1}"/>
+        <td th:text="${address.district}"/>
+        <td th:text="${address.cityId}"/>
+        <td th:text="${address.postalCode}"/>
+        <td th:text="${address.phone}"/>
+        <td th:text="${address.location}"/>
+        <td th:text="${address.lastUpdate}"/>
+    </tr>
+</table>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</html>
