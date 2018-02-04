@@ -1,8 +1,6 @@
 package com.nagihome.samplewebapp.service;
 
-import com.nagihome.samplewebapp.entity.Actor;
-import com.nagihome.samplewebapp.entity.Address;
-import com.nagihome.samplewebapp.entity.Category;
+import com.nagihome.samplewebapp.entity.*;
 import com.nagihome.samplewebapp.repository.IAppDao;
 import com.nagihome.samplewebapp.service.IAppService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +28,26 @@ public class AppService implements IAppService {
     public List<Category> getAllCategories() {
         return appDao.getAllCategories();
     }
+
+    @Override
+    public List<City> getAllCities() {
+        return appDao.getAllCities();
+    }
+
+    @Override
+    public List<City> getAllCountries() {
+        return appDao.getAllCountries();
+    }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        return appDao.getAllCustomers();
+    }
+
+    @Override
+    public List<Film> getAllFilms() {
+        return appDao.getAllFilms();
+    }
+
+
 }

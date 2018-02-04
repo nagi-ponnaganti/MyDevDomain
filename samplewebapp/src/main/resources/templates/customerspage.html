@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Customers</title>
+</head>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border:2px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+</style>
+<body>
+<h2>Customers list</h2>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+
+<table>
+    <tr>
+        <th>CUSTOMER_ID</th>
+        <th>STORE_ID</th>
+        <th>FIRST_NAME</th>
+        <th>LAST_NAME</th>
+        <th>EMAIL</th>
+        <th>ADDRESS_ID</th>
+        <th>ACTIVE</th>
+        <th>CREATE_DATE</th>
+        <th>LAST_UPDATE</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.customerId}"/>
+        <td th:text="${customer.storeId}"/>
+        <td th:text="${customer.firstName}"/>
+        <td th:text="${customer.lastName}"/>
+        <td th:text="${customer.email}"/>
+        <td th:text="${customer.addressId}"/>
+        <td th:text="${customer.active}"/>
+        <td th:text="${customer.createDate}"/>
+        <td th:text="${customer.lastUpdate}"/>
+    </tr>
+</table>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</html>

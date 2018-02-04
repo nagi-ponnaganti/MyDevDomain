@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>All Categories</title>
+    <title>All Countries</title>
 </head>
 <style>
 
@@ -21,7 +21,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 </style>
 <body>
-<h2>Categories list</h2>
+<h2>Countries list</h2>
 
 <p>
     <a href="../static/index.html" th:href="@{/}">Return to home</a>
@@ -30,14 +30,14 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 <table>
     <tr>
-        <th>CATEGORY_ID</th>
-        <th>CATEGORY_NAME</th>
+        <th>COUNTRY_ID</th>
+        <th>COUNRTY</th>
         <th>LAST_UPDATE</th>
     </tr>
-    <tr th:each="category : ${categories}">
-        <td th:text="${category.categoryId}"/>
-        <td th:text="${category.name}"/>
-        <td th:text="${category.lastUpdate}"/>
+    <tr th:each="country : ${countries}">
+        <td th:text="${country.countryId}"/>
+        <td th:text="${country.country}"/>
+        <td th:text="${country.lastUpdate}"/>
     </tr>
 </table>
 

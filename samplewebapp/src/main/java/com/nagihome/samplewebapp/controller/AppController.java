@@ -30,4 +30,29 @@ public class AppController {
         return "categoriespage";
     }
 
+    @RequestMapping("/allcity")
+    private String getAllCities(Model model) {
+        model.addAttribute("cities", appService.getAllCities());
+        return "citiespage";
+    }
+
+    @RequestMapping("/allcountry")
+    private String getAllCountries(Model model) {
+        model.addAttribute("countries", appService.getAllCountries());
+        return "countriespage";
+    }
+
+    @RequestMapping("/allcustomer")
+    private String getAllCustomers(Model model) {
+        model.addAttribute("customers", appService.getAllCustomers());
+        return "customerspage";
+    }
+
+    @RequestMapping("/allfilm")
+    private String getAllFilms(Model model) {
+        model.addAttribute("films", appService.getAllFilms());
+        return "filmspage";
+    }
+
+
 }

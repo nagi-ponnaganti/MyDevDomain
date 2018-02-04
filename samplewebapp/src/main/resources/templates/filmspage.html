@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Films</title>
+</head>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border:2px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+</style>
+<body>
+<h2>Films list</h2>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+
+<table>
+    <tr>
+        <th>FILM_ID</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>RELEASE_YEAR</th>
+        <th>LANGUAGE_ID</th>
+        <th>ORIG_LANGUAGE_ID</th>
+        <th>RENTAL_DURATION</th>
+        <th>RENTAL_RATE</th>
+        <th>LENGTH</th>
+        <th>REPLACEMENT_RATE</th>
+        <th>RATING</th>
+        <th>SPECIAL_FEATURES</th>
+        <th>LAST_UPDATE</th>
+    </tr>
+    <tr th:each="film : ${films}">
+        <td th:text="${film.filmId}"/>
+        <td th:text="${film.title}"/>
+        <td th:text="${film.description}"/>
+        <td th:text="${film.releaseYear}"/>
+        <td th:text="${film.languageId}"/>
+        <td th:text="${film.origLanguageId}"/>
+        <td th:text="${film.rentalDuration}"/>
+        <td th:text="${film.rentalRate}"/>
+        <td th:text="${film.length}"/>
+        <td th:text="${film.replacementCost}"/>
+        <td th:text="${film.rating}"/>
+        <td th:text="${film.specialFeatures}"/>
+        <td th:text="${film.lastUpdate}"/>
+    </tr>
+</table>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</html>
