@@ -1,9 +1,8 @@
 package com.nagihome.samplewebapp.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.nagihome.samplewebapp.converter.LocalDateTimeConverter;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +17,7 @@ public class Inventory {
     @Column(name = "store_id")
     private long storeId;
     @Column(name = "last_update")
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime lastUpdate;
 
     public long getInventoryId() {

@@ -69,5 +69,9 @@ public class AppService implements IAppService {
         return appDao.getAllInventories();
     }
 
+    @Override
+    public List<Language> getAllLanguages() {
+        return appDao.getAllLanguages();
+    }
 
 }

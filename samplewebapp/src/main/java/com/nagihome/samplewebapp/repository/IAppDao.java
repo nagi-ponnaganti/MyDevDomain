@@ -27,4 +27,6 @@ public interface IAppDao {
     List<FilmText> getAllFilmTexts();
 
     List<Inventory> getAllInventories();
+
+    List<Language> getAllLanguages();
 }

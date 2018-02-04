@@ -24,8 +24,7 @@ public class AppDao implements IAppDao {
     private static final String GET_ALL_FILM_CATEGORY_HSQL = "FROM FilmCategory";
     private static final String GET_ALL_FILM_TEXT_HSQL = "FROM FilmText";
     private static final String GET_ALL_INVENTORY_HSQL = "FROM Inventory";
-
-
+    private static final String GET_ALL_LANGUAGE_HSQL = "FROM Language";
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -83,6 +82,11 @@ public class AppDao implements IAppDao {
     @Override
     public List<Inventory> getAllInventories() {
         return entityManager.createQuery(GET_ALL_INVENTORY_HSQL).getResultList();
+    }
+
+    @Override
+    public List<Language> getAllLanguages() {
+        return entityManager.createQuery(GET_ALL_LANGUAGE_HSQL).getResultList();
     }
 }
 

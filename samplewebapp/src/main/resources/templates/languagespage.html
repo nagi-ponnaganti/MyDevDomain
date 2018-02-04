@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Languages</title>
+</head>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border:2px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+</style>
+<body>
+<h2>Languages list</h2>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+
+<table>
+    <tr>
+        <th>LANGUAGE_ID</th>
+        <th>NAME</th>
+        <th>LAST_UPDATE</th>
+    </tr>
+    <tr th:each="language : ${languages}">
+        <td th:text="${language.languageId}"/>
+        <td th:text="${language.name}"/>
+        <td th:text="${language.lastUpdate}"/>
+    </tr>
+</table>
+
+<p>
+    <a href="../static/index.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</html>

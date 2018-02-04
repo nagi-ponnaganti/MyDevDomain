@@ -78,4 +78,10 @@ public class AppController {
         return "inventoriespage";
     }
 
+    @RequestMapping("/alllanguage")
+    private String getAllLanguages(Model model) {
+        model.addAttribute("languages", appService.getAllLanguages());
+        return "languagespage";
+    }
+
 }
