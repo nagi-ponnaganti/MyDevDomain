@@ -20,4 +20,8 @@ public interface IAppDao {
 
     List<Film> getAllFilms();
 
+    List<FilmActor> getAllFilmActors();
+
+    List<FilmCategory> getAllFilmCategories();
+
 }

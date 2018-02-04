@@ -54,5 +54,16 @@ public class AppController {
         return "filmspage";
     }
 
+    @RequestMapping("/allfilmactor")
+    private String getAllFilmActors(Model model) {
+        model.addAttribute("filmactors", appService.getAllFilmActors());
+        return "filmsactorspage";
+    }
+
+    @RequestMapping("/allfilmcategory")
+    private String getAllFilmCategories(Model model) {
+        model.addAttribute("filmcategories", appService.getAllFilmCategories());
+        return "filmcategoriespage";
+    }
 
 }

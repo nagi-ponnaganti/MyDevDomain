@@ -20,6 +20,8 @@ public class AppDao implements IAppDao {
     private static final String GET_ALL_COUNTRIES_HSQL = "FROM Country";
     private static final String GET_ALL_CUSTOMERS_HSQL = "FROM Customer";
     private static final String GET_ALL_FILM_HSQL = "FROM Film";
+    private static final String GET_ALL_FILM_ACTOR_HSQL = "FROM FilmActor";
+    private static final String GET_ALL_FILM_CATEGORY_HSQL = "FROM FilmCategory";
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -57,6 +59,16 @@ public class AppDao implements IAppDao {
     @Override
     public List<Film> getAllFilms() {
         return entityManager.createQuery(GET_ALL_FILM_HSQL).getResultList();
+    }
+
+    @Override
+    public List<FilmActor> getAllFilmActors() {
+        return entityManager.createQuery(GET_ALL_FILM_ACTOR_HSQL).getResultList();
+    }
+
+    @Override
+    public List<FilmCategory> getAllFilmCategories() {
+        return entityManager.createQuery(GET_ALL_FILM_CATEGORY_HSQL).getResultList();
     }
 }
 

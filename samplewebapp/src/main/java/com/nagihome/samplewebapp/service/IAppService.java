@@ -19,4 +19,8 @@ public interface IAppService {
     List<Customer> getAllCustomers();
 
     List<Film> getAllFilms();
+
+    List<FilmActor> getAllFilmActors();
+
+    List<FilmCategory> getAllFilmCategories();
 }

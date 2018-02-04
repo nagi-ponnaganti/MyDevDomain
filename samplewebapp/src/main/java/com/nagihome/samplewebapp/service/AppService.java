@@ -49,5 +49,15 @@ public class AppService implements IAppService {
         return appDao.getAllFilms();
     }
 
+    @Override
+    public List<FilmActor> getAllFilmActors() {
+        return appDao.getAllFilmActors();
+    }
+
+    @Override
+    public List<FilmCategory> getAllFilmCategories() {
+        return appDao.getAllFilmCategories();
+    }
+
 
 }
