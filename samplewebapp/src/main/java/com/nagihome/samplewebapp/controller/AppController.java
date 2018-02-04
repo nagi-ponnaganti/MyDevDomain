@@ -23,4 +23,11 @@ public class AppController {
         model.addAttribute("addresses", appService.getAllAddresses());
         return "addressespage";
     }
+
+    @RequestMapping("/allcategory")
+    private String getAllCategories(Model model) {
+        model.addAttribute("categories", appService.getAllCategories());
+        return "categoriespage";
+    }
+
 }

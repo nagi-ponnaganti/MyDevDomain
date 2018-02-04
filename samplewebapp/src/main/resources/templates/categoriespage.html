@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>All Actors</title>
+    <title>All Categories</title>
 </head>
 <style>
 
@@ -19,28 +19,25 @@ th, td {
 
 tr:nth-child(even){background-color: #f2f2f2}
 
-
-
 </style>
 <body>
-<h2>Actor list</h2>
+<h2>Categories list</h2>
 
 <p>
     <a href="../static/index.html" th:href="@{/}">Return to home</a>
 </p>
 
+
 <table>
     <tr>
-        <th>ID</th>
-        <th>FIRST_NAME</th>
-        <th>LAST_NAME</th>
+        <th>CATEGORY_ID</th>
+        <th>NAME</th>
         <th>LAST_UPDATE</th>
     </tr>
-    <tr th:each="actor : ${actors}">
-        <td th:text="${actor.actorId}"/>
-        <td th:text="${actor.firstName}"/>
-        <td th:text="${actor.lastName}"/>
-        <td th:text="${actor.lastUpdate}"/>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.categoryId}"/>
+        <td th:text="${category.name}"/>
+        <td th:text="${category.lastUpdate}"/>
     </tr>
 </table>
 
