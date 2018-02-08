@@ -11,7 +11,11 @@
         <property name="connection.password">mydevdomain</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
+<!--
+        <property name="hbm2ddl.auto">create</property>
+-->
         <mapping class="com.nagihome.samplewebapp.temp.Book"/>
         <mapping class="com.nagihome.samplewebapp.temp.Publisher"/>
+        <mapping class="com.nagihome.samplewebapp.temp.Product"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,8 @@
-package com.nagihome.samplewebapp.temp;
+package com.nagihome.samplewebapp.temp.ch01.r0;
 
+import com.nagihome.samplewebapp.temp.Book;
+import com.nagihome.samplewebapp.temp.Publisher;
+import com.nagihome.samplewebapp.temp.SessionUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
