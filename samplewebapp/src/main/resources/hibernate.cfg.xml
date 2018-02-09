@@ -17,5 +17,6 @@
         <mapping class="com.nagihome.samplewebapp.temp.Book"/>
         <mapping class="com.nagihome.samplewebapp.temp.Publisher"/>
         <mapping class="com.nagihome.samplewebapp.temp.Product"/>
+        <mapping class="com.nagihome.samplewebapp.temp.MapEntry"/>
     </session-factory>
 </hibernate-configuration>
