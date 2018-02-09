@@ -1,7 +1,9 @@
 package com.nagihome.samplewebapp.temp.ch02;
 
+import com.nagihome.samplewebapp.temp.IdentityIdEntity;
 import com.nagihome.samplewebapp.temp.IncrementIdEntity;
 import com.nagihome.samplewebapp.temp.SequenceIdEntity;
+import com.nagihome.samplewebapp.temp.TableIdEntity;
 import org.h2.tools.Server;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,6 +34,8 @@ public class H2JavaIdentifierTest {
                 new Configuration().addAnnotatedClass(com.nagihome.samplewebapp.temp.Product.class)
                         .addAnnotatedClass(com.nagihome.samplewebapp.temp.SequenceIdEntity.class)
                         .addAnnotatedClass(com.nagihome.samplewebapp.temp.IncrementIdEntity.class)
+                        .addAnnotatedClass(com.nagihome.samplewebapp.temp.IdentityIdEntity.class)
+                        .addAnnotatedClass(com.nagihome.samplewebapp.temp.TableIdEntity.class)
                         .setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect")
                         .setProperty("hibernate.connection.driver_class", "org.h2.Driver")
 //                        .setProperty("hibernate.connection.url", "jdbc:h2:~/testdb;INIT=RUNSCRIPT FROM 'classpath:create.sql'\\;RUNSCRIPT FROM 'classpath:data.sql'")
@@ -87,6 +91,50 @@ public class H2JavaIdentifierTest {
         session2.close();
     }
 
+    @Test
+    public void testIdentitySequence() {
+        Session session1 = sessionFactory.openSession();
+        Transaction tx = session1.beginTransaction();
+//        IdentityIdEntity id1 = new IdentityIdEntity();
+//        id1.setId(1);
+//        id1.setValue("value1");
+//        session1.persist(id1);
 
+        IntStream.range(1, 12).forEach(i -> {
+            IdentityIdEntity id = new IdentityIdEntity();
+            id.setValue("value" + i);
+            System.out.println("persisting: " + id);
+            session1.persist(id);
+        });
+        tx.commit();
+        session1.close();
+
+        Session session2 = sessionFactory.openSession();
+        tx = session2.beginTransaction();
+        List<IdentityIdEntity> list = session2.createQuery("from IdentityIdEntity").list();
+        Assert.assertEquals(list.stream().collect(Collectors.maxBy(Comparator.comparing(IdentityIdEntity::getId))).get().getId(), 11);
+        tx.commit();
+        session2.close();
+    }
+
+    @Test
+    public void testTableGenerator() {
+        Session s1 = sessionFactory.openSession();
+        Transaction tx = s1.beginTransaction();
+        IntStream.range(1, 22).forEach(i -> {
+            TableIdEntity id = new TableIdEntity();
+            id.setValue("value" + i);
+            s1.persist(id);
+        });
+        tx.commit();
+        s1.close();
+
+        Session s2 = sessionFactory.openSession();
+        tx = s2.beginTransaction();
+        List<TableIdEntity> list = s2.createQuery("from TableIdEntity").list();
+        Assert.assertEquals(list.stream().collect(Collectors.maxBy(Comparator.comparing(TableIdEntity::getId))).get().getId(), 21);
+        tx.commit();
+        s2.close();
+    }
 
 }
