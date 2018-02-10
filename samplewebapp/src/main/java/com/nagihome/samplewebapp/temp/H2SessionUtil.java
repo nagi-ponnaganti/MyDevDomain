@@ -3,14 +3,10 @@ package com.nagihome.samplewebapp.temp;
 import org.h2.tools.Server;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.jboss.logging.Logger;
-
-import java.sql.SQLException;
 
 public class H2SessionUtil {
     private static final H2SessionUtil instance = new H2SessionUtil();
@@ -18,8 +14,10 @@ public class H2SessionUtil {
 
     Logger logger = Logger.getLogger(this.getClass());
 
+
     private H2SessionUtil() {
         try {
+
             Server webServer = Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
 
             Configuration configuration =
@@ -31,6 +29,11 @@ public class H2SessionUtil {
                             .addAnnotatedClass(com.nagihome.samplewebapp.temp.MapEntry.class)
                             .addAnnotatedClass(com.nagihome.samplewebapp.temp.StandardSqlEntity.class)
                             .addAnnotatedClass(com.nagihome.samplewebapp.temp.DynamicSqlEntity.class)
+                            .addAnnotatedClass(com.nagihome.samplewebapp.temp.NonEmbeddedOrder.class)
+                            .addAnnotatedClass(com.nagihome.samplewebapp.temp.OrderWithRelatedContact.class)
+                            .addAnnotatedClass(com.nagihome.samplewebapp.temp.RelatedContact.class)
+                            .addAnnotatedClass(com.nagihome.samplewebapp.temp.OrderWithEmbeddedContact.class)
+                            .addAnnotatedClass(com.nagihome.samplewebapp.temp.EmbeddedContact.class)
                             .setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect")
                             .setProperty("hibernate.connection.driver_class", "org.h2.Driver")
 //                        .setProperty("hibernate.connection.url", "jdbc:h2:~/testdb;INIT=RUNSCRIPT FROM 'classpath:create.sql'\\;RUNSCRIPT FROM 'classpath:data.sql'")
@@ -45,6 +48,7 @@ public class H2SessionUtil {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
     }
