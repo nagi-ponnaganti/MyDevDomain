@@ -3,6 +3,7 @@ package com.nagihome.ocp.ch04;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Chapter04Main {
@@ -89,7 +90,45 @@ public class Chapter04Main {
         System.out.println("Stream Reduce: " + stream1.reduce("", String::concat));
 
         Stream<String> stream2 = Stream.of("w", "o", "l", "f");
-        System.out.println("Stream Collect: " + stream1.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append));
+        System.out.println("Stream Collect: " + stream2.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append));
+
+        Stream<String> stream3 = Stream.of("w", "o", "l", "f");
+        System.out.println("Stream Collect: " + stream3.collect(Collectors.toCollection(TreeSet::new)));
+
+        System.out.println("find any : " + Stream.of("monkey", "gorilla", "bonobo").parallel().findAny());
+        System.out.println("find first : " + Stream.of("monkey", "gorilla", "bonobo").findFirst());
+
+        System.out.println("All Match: " + Stream.of("a", "ab", "abc").allMatch(s -> s.startsWith("a")));
+        System.out.println("Any Match: " + Stream.of("a", "ab", "abc").anyMatch(s -> s.length() == 3));
+        System.out.println("None Match: " + Stream.of("a", "ab", "abc").anyMatch(s -> !s.isEmpty()));
+
+        Stream.of("Am", "Bm", "C").filter(s -> s.startsWith("C")).forEach(s -> System.out.println("Predicate: " + s));
+        Optional.of(Stream.of("duck", "duck", "goose").distinct()
+                .collect(Collectors.joining(",")))
+                .ifPresent(s -> System.out.println("Distinct: " + s));
+
+        Optional.of(Stream.iterate(1, n -> n * 2).limit(10).map(String::valueOf)
+                .collect(Collectors.joining(" -> ")))
+                .ifPresent(s -> System.out.println("Limit: " + s));
+
+        List<String> zero = Arrays.asList();
+        List<String> one = Arrays.asList("Monkey");
+        List<String> two = Arrays.asList("Monkey", "Baboon");
+        Optional.of(Stream.of(zero, one, two).flatMap(l -> l.stream())
+                .distinct()
+                .collect(Collectors.joining(";")))
+                .ifPresent(s -> System.out.println("FlatMap: " + s));
+
+        System.out.println("Sorted: " + Stream.of('y', 'L', '1', '4', 'K', 'n')
+                .sorted().map(String::valueOf)
+                .collect(Collectors.joining("")));
+
+        System.out.println("Sorted Reverse: " + Stream.of('y', 'L', '1', '4', 'K', 'n')
+                .sorted(Comparator.reverseOrder()).map(String::valueOf)
+                .collect(Collectors.joining("")));
+
+        System.out.println("" + Stream.of("black bear", "brown bear", "grizzly").peek(s -> System.out.print(s + ", ")).count());
+
 
 
     }
