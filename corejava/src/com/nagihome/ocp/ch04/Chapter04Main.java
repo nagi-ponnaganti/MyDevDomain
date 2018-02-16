@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Chapter04Main {
@@ -129,7 +131,28 @@ public class Chapter04Main {
 
         System.out.println("" + Stream.of("black bear", "brown bear", "grizzly").peek(s -> System.out.print(s + ", ")).count());
 
+        System.out.println("IntStream Avg: " + IntStream.of(1, 2, 3).average().getAsDouble());
+        System.out.println("IntStream Sum: " + IntStream.of(1, 2, 3).sum());
+        System.out.println("IntStream Max: " + IntStream.of(1, 2, 3).max().getAsInt());
 
+        Optional.of(DoubleStream.generate(Math::random)
+                .limit(4)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining("\n")))
+                .ifPresent(s -> System.out.println("DoubleStream Generate: " + s));
+
+        Optional.of(DoubleStream.iterate(0.5, n -> n + 2)
+                .limit(4)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining("\n")))
+                .ifPresent(s -> System.out.println("DoubleStream Iterate: " + s));
+
+
+        IntSummaryStatistics stats = IntStream.of(1, 2, 3).summaryStatistics();
+        System.out.println("stats.getAverage: " + stats.getAverage());
+        System.out.println("stats.getMax: " + stats.getMax());
+        System.out.println("stats.getMin: " + stats.getMin());
+        System.out.println("stats.getSum: " + stats.getSum());
 
     }
 
