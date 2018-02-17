@@ -6,30 +6,29 @@ import javafx.beans.value.ObservableValue;
 
 public class ChangeTest {
 
-	public static void main(String[] args) {
-		
-		IntegerProperty counter = new SimpleIntegerProperty(100);
-		counter.addListener(ChangeTest::change);
-		
-		System.out.println("changeing the counter 1");
-		counter.set(101);
-		
-		System.out.println("changeing the counter 2");
-		counter.set(102);
-		
-		System.out.println("get the counter value: " + counter.get());
-		
-		System.out.println("changeing the counter 3");
-		counter.set(102);
+    public static void main(String[] args) {
+        IntegerProperty counter = new SimpleIntegerProperty(100);
+        counter.addListener(ChangeTest::changed);
+        System.out.println("Changing the counter value to 101");
+        counter.set(101);
 
-		System.out.println("changeing the counter 4");
-		counter.set(103);
-		
-	}
+        System.out.println("Changing the counter value to 102");
+        counter.set(102);
 
-	public static void change(ObservableValue<? extends Number> prop, Number oldValue, Number newValue) {
-		System.out.println("Counter Changed");
-		System.out.format("Prop: %s, oldValue: %d, newValue: %d\n", prop, oldValue, newValue);		
-	}
+        System.out.println("Getting the counter value");
+        int temp = counter.get();
+        System.out.println("counter temp value: " + temp);
+
+        System.out.println("Changing the counter value to 102");
+        counter.set(102);
+
+        System.out.println("Changing the counter value to 103");
+        counter.set(103);
+
+    }
+
+    public static void changed(ObservableValue<? extends Number> o, Number oldValue, Number newValue) {
+        System.out.printf("Changed: OldValue: %s, NewValue: %s\n", oldValue, newValue);
+    }
 
 }
