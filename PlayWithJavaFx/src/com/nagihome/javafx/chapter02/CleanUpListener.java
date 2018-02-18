@@ -7,22 +7,26 @@ import javafx.beans.value.ObservableValue;
 
 public class CleanUpListener {
 
-	public static void main(String[] args) {
-		IntegerProperty counter = new SimpleIntegerProperty(100);
-		ChangeListener<Number> listener = CleanUpListener::change;
-		counter.addListener(listener);
-		
-		System.out.println("1. Changing the counter value");
-		counter.set(101);
-		
-		counter.removeListener(listener);
-		
-		System.out.println("2. Changing the counter value");
-		counter.set(102);
-		
-	}
+    public static void main(String[] args) {
 
-	public static void change(ObservableValue<? extends Number> prop, Number oldValue, Number newValue) {
-		System.out.format("OldValue: %d , NewValue: %d\n", oldValue, newValue);
-	}
+        IntegerProperty counter = new SimpleIntegerProperty(100);
+        ChangeListener<Number> changeListener = CleanUpListener::cleanUp;
+
+        counter.addListener(changeListener);
+
+        System.out.println("Changing the counter value to 101");
+        counter.set(101);
+
+        System.out.println("Removing the changeListener");
+        counter.removeListener(changeListener);
+
+        System.out.println("Changing the counter value to 102");
+        counter.set(102);
+
+    }
+
+    private static void cleanUp(ObservableValue<? extends Number> o, Number oldValue, Number newValue) {
+        System.out.printf("oldValue: %s, newValue: %s \n", oldValue, newValue);
+    }
+
 }
