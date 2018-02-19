@@ -21,8 +21,8 @@ public class InstanceOfMain {
 
     }
 
-    public interface Mother {}
-
+    public interface Mother {
+    }
 
     static class HeavyAnimal implements Animal {
     }
