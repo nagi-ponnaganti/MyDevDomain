@@ -207,16 +207,6 @@
 
     </map>
 
-    <map name="capitals">
-        <max-size policy="PER_NODE">300</max-size>
-        <eviction-policy>LFU</eviction-policy>
-        <eviction-percentage>20</eviction-percentage>
-        <backup-count>1</backup-count>
-        <async-backup-count>1</async-backup-count>
-        <time-to-live-seconds>86400</time-to-live-seconds>
-        <max-idle-seconds>3600</max-idle-seconds>
-    </map>
-
     <!--
            Configuration for an event journal. The event journal keeps events related
            to a specific partition and data structure. For instance, it could keep
