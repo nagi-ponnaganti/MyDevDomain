@@ -1,4 +1,4 @@
-package com.nagihome.codility.l3;
+package com.nagihome.codility.l4;
 
 public class FrogRiverOne {
 
