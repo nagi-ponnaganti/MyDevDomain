@@ -1,13 +1,11 @@
 package maze.explorer;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import maze.builder.Maze;
 import maze.builder.MazeBuilder;
-import maze.explorer.Explorer;
 import maze.route.Route;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class ExplorerTest {
 
