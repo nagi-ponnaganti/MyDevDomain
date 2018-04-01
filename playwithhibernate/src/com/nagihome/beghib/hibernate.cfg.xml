@@ -21,5 +21,8 @@
         <mapping class="com.nagihome.beghib.ch03.Person"/>
         <mapping class="com.nagihome.beghib.ch03.Ranking"/>
         <mapping class="com.nagihome.beghib.ch03.Skill"/>
+        <mapping class="com.nagihome.beghib.ch04.Message1"/>
+        <mapping class="com.nagihome.beghib.ch04.Email1"/>
+
     </session-factory>
 </hibernate-configuration>
