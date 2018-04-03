@@ -23,6 +23,8 @@
         <mapping class="com.nagihome.beghib.ch03.Skill"/>
         <mapping class="com.nagihome.beghib.ch04.Message1"/>
         <mapping class="com.nagihome.beghib.ch04.Email1"/>
+        <mapping class="com.nagihome.beghib.ch04.SimpleObject"/>
+
 
     </session-factory>
 </hibernate-configuration>
