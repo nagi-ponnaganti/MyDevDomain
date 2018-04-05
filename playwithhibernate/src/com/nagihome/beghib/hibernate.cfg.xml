@@ -26,6 +26,8 @@
         <mapping class="com.nagihome.beghib.ch04.SimpleObject"/>
         <mapping class="com.nagihome.beghib.ch04.Library"/>
         <mapping class="com.nagihome.beghib.ch04.Book"/>
+        <mapping class="com.nagihome.beghib.ch06.CPKBook"/>
+        <mapping class="com.nagihome.beghib.ch06.ISBN"/>
 
 
     </session-factory>
