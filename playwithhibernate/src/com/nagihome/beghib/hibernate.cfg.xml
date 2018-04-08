@@ -31,6 +31,7 @@
         <mapping class="com.nagihome.beghib.ch06.Employee"/>
         <mapping class="com.nagihome.beghib.ch06.Item"/>
         <mapping class="com.nagihome.beghib.ch06.Cart"/>
+        <mapping class="com.nagihome.beghib.ch06.TransientObject"/>
 
 
     </session-factory>
