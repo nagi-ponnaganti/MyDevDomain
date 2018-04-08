@@ -28,7 +28,6 @@
         <mapping class="com.nagihome.beghib.ch04.Book"/>
         <mapping class="com.nagihome.beghib.ch06.CPKBook"/>
         <mapping class="com.nagihome.beghib.ch06.ISBN"/>
-
-
+        <mapping class="com.nagihome.beghib.ch06.Employee"/>
     </session-factory>
 </hibernate-configuration>
