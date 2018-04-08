@@ -29,5 +29,9 @@
         <mapping class="com.nagihome.beghib.ch06.CPKBook"/>
         <mapping class="com.nagihome.beghib.ch06.ISBN"/>
         <mapping class="com.nagihome.beghib.ch06.Employee"/>
+        <mapping class="com.nagihome.beghib.ch06.Item"/>
+        <mapping class="com.nagihome.beghib.ch06.Cart"/>
+
+
     </session-factory>
 </hibernate-configuration>
