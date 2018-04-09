@@ -39,7 +39,8 @@
         <mapping class="com.nagihome.beghib.ch06.Phone"/>
         <mapping class="com.nagihome.beghib.ch06.Person1"/>
         <mapping class="com.nagihome.beghib.ch06.Phone1"/>
-
+        <mapping class="com.nagihome.beghib.ch06.Person2"/>
+        <mapping class="com.nagihome.beghib.ch06.Phone2"/>
 
     </session-factory>
     

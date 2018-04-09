@@ -110,7 +110,76 @@ public class GeneralTest {
             Query query = session.createQuery("from Phone p");
             List<Phone> phones = query.list();
 
-            phones.forEach(System.out::println);
+            Assert.assertTrue(phones.size() == 2);
+        }
+    }
+
+
+    @Test
+    public void testOneToMany() {
+
+        Long id;
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+            Phone1 phone1 = new Phone1();
+            phone1.setPhoneNum("12345");
+            Phone1 phone2 = new Phone1();
+            phone2.setPhoneNum("67890");
+
+            session.save(phone1);
+            session.save(phone2);
+
+            Person1 person1 = new Person1();
+            person1.getPhones().add(phone1);
+            person1.getPhones().add(phone2);
+
+            session.save(person1);
+
+            tx.commit();
+
+            id = person1.getId();
+        }
+
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Person1 person1 = session.load(Person1.class, id);
+            Assert.assertTrue(person1.getPhones().size() == 2);
+        }
+    }
+
+    @Test
+    public void testOneToManyBiDirectional() {
+        Long id;
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+
+            Person2 person1 = new Person2();
+            person1.setName("Nagi");
+            session.save(person1);
+
+            Phone2 phone1 = new Phone2();
+            phone1.setPhoneNum("12345");
+            phone1.setPerson(person1);
+            Phone2 phone2 = new Phone2();
+            phone2.setPhoneNum("67890");
+            phone2.setPerson(person1);
+
+            session.save(phone1);
+            session.save(phone2);
+
+            tx.commit();
+
+            id = person1.getId();
+        }
+
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Person2 person1 = session.load(Person2.class, id);
+            Assert.assertTrue(person1.getPhones().size() == 2);
         }
     }
 
