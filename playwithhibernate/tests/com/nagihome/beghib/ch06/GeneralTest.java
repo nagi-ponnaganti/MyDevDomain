@@ -183,4 +183,80 @@ public class GeneralTest {
         }
     }
 
+    @Test
+    public void testOneToOneUniDirectional() {
+
+        Long id;
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+
+            PhoneDetails phoneDetails = new PhoneDetails();
+            phoneDetails.setProvider("O2");
+            session.save(phoneDetails);
+
+            Phone3 phone3 = new Phone3();
+            phone3.setPhoneNum("07507260541");
+            phone3.setPhoneDetails(phoneDetails);
+            session.save(phone3);
+
+            id = phone3.getId();
+
+            tx.commit();
+
+        }
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+            Phone3 phone3 = session.get(Phone3.class, id);
+
+            Assert.assertTrue(phone3.getPhoneDetails().getProvider().equals("O2"));
+            tx.commit();
+        }
+    }
+
+
+    @Test
+    public void testOneToOneBiDirectional() {
+
+        Long pId;
+        Long pdId;
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+
+            Phone4 phone4 = new Phone4();
+            phone4.setPhoneNum("07507260541");
+            session.save(phone4);
+
+
+            PhoneDetails4 phoneDetails4 = new PhoneDetails4();
+            phoneDetails4.setProvider("O2");
+            phoneDetails4.setPhone4(phone4);
+            session.save(phoneDetails4);
+
+            pId = phone4.getId();
+            pdId = phoneDetails4.getId();
+
+            tx.commit();
+
+        }
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+            Phone4 phone4 = session.get(Phone4.class, pId);
+
+            Assert.assertTrue(phone4.getPhoneDetails4().getProvider().equals("O2"));
+
+            PhoneDetails4 phoneDetails4 = session.get(PhoneDetails4.class, pdId);
+            Assert.assertTrue(phoneDetails4.getPhone4().getPhoneNum().equals("07507260541"));
+
+            tx.commit();
+        }
+    }
+
 }
