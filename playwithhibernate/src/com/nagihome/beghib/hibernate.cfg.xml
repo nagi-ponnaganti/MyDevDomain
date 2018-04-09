@@ -35,6 +35,10 @@
         <mapping class="com.nagihome.beghib.ch06.Book"/>
         <mapping class="com.nagihome.beghib.ch06.Location"/>
         <mapping class="com.nagihome.beghib.ch06.Publisher"/>
+        <mapping class="com.nagihome.beghib.ch06.Person"/>
+        <mapping class="com.nagihome.beghib.ch06.Phone"/>
+
+
     </session-factory>
     
 </hibernate-configuration>

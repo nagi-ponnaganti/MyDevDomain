@@ -3,8 +3,11 @@ package com.nagihome.beghib.ch06;
 import com.nagihome.beghib.util.SessionUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class GeneralTest {
 
@@ -67,6 +70,47 @@ public class GeneralTest {
             Assert.assertTrue(book.getEbookPublisher().getLocation().getCity().equals("London"));
             Assert.assertTrue(book.getPaperBackPublisher().getLocation().getCity().equals("London"));
 
+        }
+    }
+
+    @Test
+    public void testManyToOne() {
+
+        Long id;
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+
+            Person person = new Person();
+            person.setName("Nagi");
+
+            session.save(person);
+
+            Phone phone1 = new Phone();
+            phone1.setPhoneNumber("07507260541");
+            phone1.setPerson(person);
+
+            session.save(phone1);
+
+            Phone phone2 = new Phone();
+            phone2.setPhoneNumber("07507260542");
+            phone2.setPerson(person);
+
+            session.save(phone2);
+
+            id = person.getId();
+
+            tx.commit();
+        }
+
+        try (Session session = SessionUtil.getSession()) {
+
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("from Phone p");
+            List<Phone> phones = query.list();
+
+            phones.forEach(System.out::println);
         }
     }
 
