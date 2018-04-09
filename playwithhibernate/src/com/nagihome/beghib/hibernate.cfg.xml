@@ -32,7 +32,9 @@
         <mapping class="com.nagihome.beghib.ch06.Item"/>
         <mapping class="com.nagihome.beghib.ch06.Cart"/>
         <mapping class="com.nagihome.beghib.ch06.TransientObject"/>
-
-
+        <mapping class="com.nagihome.beghib.ch06.Book"/>
+        <mapping class="com.nagihome.beghib.ch06.Location"/>
+        <mapping class="com.nagihome.beghib.ch06.Publisher"/>
     </session-factory>
+    
 </hibernate-configuration>
