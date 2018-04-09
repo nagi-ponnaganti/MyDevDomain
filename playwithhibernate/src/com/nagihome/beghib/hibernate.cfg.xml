@@ -37,6 +37,8 @@
         <mapping class="com.nagihome.beghib.ch06.Publisher"/>
         <mapping class="com.nagihome.beghib.ch06.Person"/>
         <mapping class="com.nagihome.beghib.ch06.Phone"/>
+        <mapping class="com.nagihome.beghib.ch06.Person1"/>
+        <mapping class="com.nagihome.beghib.ch06.Phone1"/>
 
 
     </session-factory>
