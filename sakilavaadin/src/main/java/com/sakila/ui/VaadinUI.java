@@ -9,7 +9,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@SpringUI
+//@SpringUI
 public class VaadinUI extends UI {
 
     @Autowired
