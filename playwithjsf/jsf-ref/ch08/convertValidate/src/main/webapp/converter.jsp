@@ -14,8 +14,8 @@
 
 <h:form id="form">
 
-<f:loadBundle basename="com.jsfcompref.bundles.Localized" var="bundle" />
-
+<%-- <f:loadBundle basename="com.jsfcompref.bundles.Localized" var="bundle" />
+ --%>
 <p><h:outputText value="#{bundle.skuLabel}" /> 
  
 <h:inputText value="#{product.sku}" required="true" id="sku">
