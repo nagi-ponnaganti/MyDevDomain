@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author nageswararaoponnaganti
- *
- */
-module corejava {
-}
